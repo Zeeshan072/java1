@@ -1,4 +1,3 @@
-
 class Bank2{
     int getInterestRate(){
         return 0;}}
