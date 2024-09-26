@@ -1,4 +1,3 @@
-
 abstract class Shape1{
     abstract double calculateArea();
     abstract double calculatePerimeter();}
