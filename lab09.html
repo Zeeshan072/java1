@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Append & Animate Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        p, ul, li {
+            color: #333;
+            margin: 10px 0;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #f4f4f4;
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            transition: background-color 0.5s ease;
+        }
+        button {
+            margin: 5px 10px 10px 0;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Append & Animate Demo</h2>
+
+    <p id="para">This is the paragraph.</p>
+
+    <ul id="list">
+        <li>item 1</li>
+        <li>item 2</li>
+    </ul>
+
+    <button id="appendBtn">Append Content</button>
+    <button id="animateBtn">Animate Box</button>
+
+    <div class="box" id="animateBox"></div>
+
+    <script>
+        $(document).ready(function() {
+            let itemCount = $('#list li').length;
+
+            // Append content to paragraph and list
+            $('#appendBtn').click(function() {
+                itemCount++;
+                // Append text to paragraph
+                $('#para').append(' append text ' + itemCount);
+                // Append new list item
+                $('#list').append('<li>item ' + itemCount + '</li>');
+            });
+
+            // Animate box size and change background color
+            $('#animateBtn').click(function() {
+                // Reset box to initial state before animation
+                $('#animateBox')
+                    .stop(true, true)  // Stop ongoing animations
+                    .css({
+                        width: '100px',
+                        height: '100px',
+                        backgroundColor: '#f4f4f4',
+                        borderColor: '#ccc'
+                    })
+                    .animate({
+                        width: '150px',
+                        height: '150px',
+                    }, 600, function() {
+                        // Change background color after animation
+                        $(this).css('backgroundColor', '#87CEFA'); // light blue
+                    });
+            });
+        });
+    </script>
+
+</body>
+</html>
